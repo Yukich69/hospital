@@ -11,6 +11,10 @@ public class Department {
     private List<Doctor> doctorList;
     private List<Nurse> nurseList;
 
+    public Department() {
+
+    }
+
 
     public Department(String name, List<Doctor> doctorList, List<Nurse> nurseList) {
         if(employeeLimit(doctorList.size() + nurseList.size())) {

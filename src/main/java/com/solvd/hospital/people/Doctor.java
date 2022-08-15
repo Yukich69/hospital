@@ -11,7 +11,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Doctor extends Employee {
-    private static final Logger log = LogManager.getLogger(com.solvd.hospital.people.Doctor.class);
+    private static final Logger log = LogManager.getLogger(Doctor.class);
 
     private static final Scanner scanner = new Scanner(System.in);
     private List<Patient>  patientList;
