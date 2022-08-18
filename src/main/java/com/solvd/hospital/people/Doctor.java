@@ -1,11 +1,12 @@
 package com.solvd.hospital.people;
 
+import com.solvd.hospital.healthInfo.Disease;
+import com.solvd.hospital.healthInfo.DiseaseType;
+import com.solvd.hospital.healthInfo.HealthCard;
 import com.solvd.hospital.structure.Department;
 import com.solvd.hospital.structure.Office;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,6 +20,9 @@ public class Doctor extends Employee {
 
 
     public Doctor(){
+    }
+
+    public Doctor(Office office, String name, int age){
     }
 
     public Doctor(Office office, String name, boolean hasEducation, int age, Department department, double salary,
@@ -43,6 +47,8 @@ public class Doctor extends Employee {
     public void setOffice(Office office) {
         this.office = office;
     }
+
+    public void setPatientList(ArrayList<Patient> patients){this.patientList = patients;}
 
     @Override
     public String toString() {
@@ -93,8 +99,26 @@ public class Doctor extends Employee {
 
         log.info("Enter gender: ");
         String gender = scanner.nextLine();
-
-        return new Patient(name, age, gender);
+        log.info("Enter your disease: ");
+        String disease = scanner.nextLine();
+        LinkedHashSet<Disease> disset = new LinkedHashSet<>();
+        Disease dis = new Disease();
+        dis.setDisease(disease);
+        HealthCard card = new HealthCard();
+        switch (disease) {
+            case "cardio":
+                dis.setType(DiseaseType.CARDIO);
+                break;
+            case "surg":
+                dis.setType(DiseaseType.SURGERY);
+                break;
+            default:
+                log.info("Are you sure?");
+                break;
+        }
+        disset.add(dis);
+        card.setDiseaseList(disset);
+        return new Patient(name, age, gender, card);
     }
     private boolean patientLimit(int size) {
         return size > 10;

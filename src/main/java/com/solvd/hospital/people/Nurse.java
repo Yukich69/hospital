@@ -12,6 +12,10 @@ public class Nurse extends Employee {
     public Nurse(){
     }
 
+    public Nurse(String name, int age){
+
+    }
+
     public Nurse(Department department, double salary, String name, boolean hasEducation, int age,
                  List<Consultation> consultationList) {
         super(name, hasEducation, age, department, salary);

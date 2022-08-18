@@ -53,7 +53,7 @@ public class Administration implements CardSettable {
 
     @Override
     public HealthCard addHealthCard(String cardId, Patient patient, LinkedHashSet<Disease> diseaseList) {
-        HealthCard card = new HealthCard(cardId, patient, diseaseList);
+        HealthCard card = new HealthCard(cardId, diseaseList);
         healthCards.add(card);
         return card;
     }

@@ -8,14 +8,12 @@ import java.util.Objects;
 public class HealthCard implements DiseaseSettable{
     private String cardId;
     private LinkedHashSet<Disease> diseaseList;
-    private Patient patient;
 
     public HealthCard() {
     }
 
-    public HealthCard(String cardId, Patient patient, LinkedHashSet<Disease> diseaseList) {
+    public HealthCard(String cardId, LinkedHashSet<Disease> diseaseList) {
         this.cardId = cardId;
-        this.patient = patient;
         this.diseaseList = diseaseList;
     }
 
@@ -27,13 +25,6 @@ public class HealthCard implements DiseaseSettable{
         this.cardId = cardId;
     }
 
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
 
     public LinkedHashSet<Disease> getDiseaseList() {
         return diseaseList;
@@ -45,13 +36,13 @@ public class HealthCard implements DiseaseSettable{
 
     @Override
     public String toString() {
-        return getClass().getName() + "[id=" + getCardId() + ",patient=" + getPatient().toString()
+        return getClass().getName() + "[id=" + getCardId() + ",patient="
                 +  ",office=" + getDiseaseList().toString() + "]";
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getCardId().hashCode(), getPatient().hashCode(), getDiseaseList().hashCode());
+        return Objects.hash(getCardId().hashCode(), getDiseaseList().hashCode());
     }
 
     @Override
@@ -63,8 +54,8 @@ public class HealthCard implements DiseaseSettable{
     }
 
     @Override
-    public Disease addDisease(String name) {
-        Disease disease = new Disease(name);
+    public Disease addDisease(String name, DiseaseType type) {
+        Disease disease = new Disease(name,type);
         diseaseList.add(disease);
         return disease;
     }

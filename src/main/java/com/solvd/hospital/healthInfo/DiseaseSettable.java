@@ -4,7 +4,8 @@ import java.util.LinkedHashSet;
 
 public interface DiseaseSettable {
 
-    Disease addDisease(String disease);
+
+    Disease addDisease(String name, DiseaseType type);
 
     LinkedHashSet<Disease> deleteDisease(Disease disease);
 

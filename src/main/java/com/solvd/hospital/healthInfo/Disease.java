@@ -4,16 +4,24 @@ import java.util.Objects;
 
 public class Disease {
     private String disease;
+    private DiseaseType type;
 
     public Disease(){
     }
 
-    public Disease(String disease){
+    public Disease(String disease, DiseaseType type){
         this.disease = disease;
+        this.type = type;
     }
 
     public String getDisease() {
         return disease;
+    }
+
+    public DiseaseType getDiseaseType(){return type;}
+
+    public void setType(DiseaseType type) {
+        this.type = type;
     }
 
     public void setDisease(String disease) {

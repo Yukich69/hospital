@@ -1,17 +1,20 @@
 package com.solvd.hospital.people;
 
+import com.solvd.hospital.healthInfo.HealthCard;
+
 import java.util.Objects;
 
 public class Patient  extends Person {
     private String gender;
-
+    private HealthCard card;
 
     public Patient() {
     }
 
-    public Patient (String name,int age,String gender) {
+    public Patient (String name,int age,String gender, HealthCard card) {
         super(name, age);
         this.gender = gender;
+        this.card = card;
     }
 
     public String getGender(){
@@ -22,6 +25,11 @@ public class Patient  extends Person {
         this.gender = gender;
     }
 
+    public void setCard(HealthCard card){this.card = card;}
+
+    public HealthCard getCard() {
+        return card;
+    }
 
     @Override
     public String toString() {

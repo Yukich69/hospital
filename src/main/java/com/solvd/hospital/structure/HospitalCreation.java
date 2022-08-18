@@ -7,51 +7,43 @@ import java.util.*;
 
 public class HospitalCreation {
 
-    private static  List<Doctor> surgeryDoctors = new ArrayList<>(){
+    public static  List<Doctor> surgeryDoctors = new ArrayList<>(){
         {
-           add(new Doctor());
-           add(new Doctor());
-           add(new Doctor());
-           add(new Doctor());
+           add(new Doctor(new Office(1), "Jon", 42));
+           add(new Doctor(new Office(2), "Jack", 39));
         }
     };
 
-    private static  List<Doctor> cardiologyDoctors = new ArrayList<>(){
+    public static  List<Doctor> cardiologyDoctors = new ArrayList<>(){
         {
-            add(new Doctor());
-            add(new Doctor());
-            add(new Doctor());
-            add(new Doctor());
+            add(new Doctor(new Office(3), "Ben", 41));
+            add(new Doctor(new Office(4), "Fill", 45));
         }
     };
 
-    private static List<Nurse> surgeryNurses = new ArrayList<>(){
+    public static List<Nurse> surgeryNurses = new ArrayList<>(){
         {
-            add(new Nurse());
-            add(new Nurse());
-            add(new Nurse());
-            add(new Nurse());
+            add(new Nurse( "Hellen", 32));
+            add(new Nurse("Jane", 30));
         }
     };
 
-    private static List<Nurse> cardiologyNurses = new ArrayList<>(){
+    public static List<Nurse> cardiologyNurses = new ArrayList<>(){
         {
-            add(new Nurse());
-            add(new Nurse());
-            add(new Nurse());
-            add(new Nurse());
+            add(new Nurse("Emma", 37));
+            add(new Nurse("Lis", 35));
         }
     };
 
-    private static LinkedHashSet<Department> departmentList = new LinkedHashSet<>(){
+    public static LinkedHashSet<Department> departmentList = new LinkedHashSet<>(){
         {
             add(new Department("Surgery", surgeryDoctors, surgeryNurses));
             add(new Department("Cardiology", cardiologyDoctors, cardiologyNurses));
         }
     };
 
-    private List<Office> offices;
+    public List<Office> offices;
 
-    private static final Hospital hospital = new Hospital("Hope", "Kyiv", departmentList );
+    public static  Hospital hospital = new Hospital("Hope", "Kyiv", departmentList );
 }
 
