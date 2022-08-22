@@ -4,7 +4,6 @@ import com.solvd.hospital.service.Consultation;
 import com.solvd.hospital.structure.Department;
 
 import java.util.List;
-import java.util.Objects;
 
 public class Nurse extends Employee {
     private List<Consultation> consultationList;
@@ -22,7 +21,7 @@ public class Nurse extends Employee {
         this.consultationList = consultationList;
     }
 
-
+    public static Functional<Nurse, Doctor> hired = x -> new Doctor(x.getName(), x.getSalary());
     public List<Consultation> getConsultationList() {
         return consultationList;
     }
@@ -31,16 +30,16 @@ public class Nurse extends Employee {
         this.consultationList = consultationList;
     }
 
-    @Override
-    public String toString() {
-        return getClass().getName() + "[name=" + getName() + ",departments=" + getDepartment().toString()
-                +  ",salary=" + getSalary()  + "]";
-    }
+   // @Override
+   //public String toString() {
+      //  return getClass().getName() + "[name=" + getName() + ",departments=" + getDepartment().toString()
+       //        +  ",salary=" + getSalary()  + "]";
+   // }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getName().hashCode(), getDepartment().hashCode(), getSalary());
-    }
+   //@Override
+   // public int hashCode() {
+     //   return Objects.hash(getName().hashCode(), getDepartment().hashCode(), getSalary());
+    //}
 
     @Override
     public boolean equals(Object o) {

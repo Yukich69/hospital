@@ -53,15 +53,15 @@ public abstract class Person {
         this.age = age;
     }
 
-    @Override
-    public String toString() {
-        return getClass().getName() + "[name=" + getName() + "]";
-    }
+    //@Override
+   // public String toString() {
+       // return getClass().getName() + "[name=" + getName() + "]";
+   // }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getName().hashCode());
-    }
+   // @Override
+   //public int hashCode() {
+       // return Objects.hash(getName().hashCode());
+   // }
 
     @Override
     public boolean equals(Object o) {

@@ -2,8 +2,6 @@ package com.solvd.hospital.people;
 
 import com.solvd.hospital.structure.Department;
 
-import java.util.Objects;
-
 public abstract class Employee extends Person implements Workable {
     private Department department;
     private double salary;
@@ -16,6 +14,7 @@ public abstract class Employee extends Person implements Workable {
         this.department = department;
         this.salary = salary;
     }
+
 
     public Employee(String name, boolean hasEducation, int age, Department department, double salary){
         super(name, age);
@@ -39,16 +38,16 @@ public abstract class Employee extends Person implements Workable {
         this.salary = salary;
     }
 
-    @Override
-    public String toString() {
-        return getClass().getName() + "[name=" + getName() + ",department=" + getDepartment().toString()
-                +  ",salary=" + getSalary() + "]";
-    }
+   /// @Override
+    //public String toString() {
+       // return getClass().getName() + "[name=" + getName() + ",department=" + getDepartment().toString()
+      //          +  ",salary=" + getSalary() + "]";
+    //}
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getName().hashCode(), getDepartment().hashCode(), getSalary());
-    }
+    //@Override
+    //public int hashCode() {
+       /// return Objects.hash(getName().hashCode(), getDepartment().hashCode(), getSalary());
+    //}
 
     @Override
     public boolean equals(Object o) {

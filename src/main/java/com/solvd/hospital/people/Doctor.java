@@ -22,6 +22,9 @@ public class Doctor extends Employee {
     public Doctor(){
     }
 
+    public Doctor(String name, double salary){
+    }
+
     public Doctor(Office office, String name, int age){
     }
 
