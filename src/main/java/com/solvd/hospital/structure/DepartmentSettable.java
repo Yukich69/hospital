@@ -10,6 +10,6 @@ public interface DepartmentSettable {
 
     Department addDepartment(String name, List<Doctor> doctorList, List<Nurse> nurseList);
 
-    LinkedHashSet<Department> deleteDepartment(Department department);
+   // LinkedHashSet<Department> deleteDepartment(Department department);
 
 }

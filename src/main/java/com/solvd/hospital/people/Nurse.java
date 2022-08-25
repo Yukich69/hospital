@@ -5,20 +5,35 @@ import com.solvd.hospital.structure.Department;
 
 import java.util.List;
 
+import static com.solvd.hospital.info.InfoSetup.surf;
+
 public class Nurse extends Employee {
     private List<Consultation> consultationList;
+
+    private final String secret = " has a secret... ";
+
+    private String name;
 
     public Nurse(){
     }
 
     public Nurse(String name, int age){
-
+        this.name = name;
     }
 
     public Nurse(Department department, double salary, String name, boolean hasEducation, int age,
                  List<Consultation> consultationList) {
         super(name, hasEducation, age, department, salary);
         this.consultationList = consultationList;
+    }
+
+
+    private void secretReveal(String smt) {
+        surf("The secret of " + getClass().getSimpleName() + " is roman with " + smt);
+    }
+    @Override
+    public String getName() {
+        return name;
     }
 
     public static Functional<Nurse, Doctor> hired = x -> new Doctor(x.getName(), x.getSalary());

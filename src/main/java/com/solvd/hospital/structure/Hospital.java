@@ -10,15 +10,26 @@ import java.util.Objects;
 public class Hospital implements DepartmentSettable {
     private String name;
     private String city;
-    private LinkedHashSet<Department> departmentList;
+    private List<Department> departmentList;
+
+    private Administration administration;
 
     public Hospital() {
     }
 
-    public Hospital(String name, String city, LinkedHashSet<Department> departmentList){
+    public Hospital(String name, String city, List<Department> departmentList, Administration administration){
         this.name = name;
         this.city = city;
         this.departmentList = departmentList;
+        this.administration = administration;
+    }
+
+    public Administration getAdministration() {
+        return administration;
+    }
+
+    public void setAdministration(Administration administration) {
+        this.administration = administration;
     }
 
     public String getName() {
@@ -29,11 +40,11 @@ public class Hospital implements DepartmentSettable {
         this.name = name;
     }
 
-    public LinkedHashSet<Department> getDepartmentList() {
+    public List<Department> getDepartmentList() {
         return departmentList;
     }
 
-    public void setDepartmentList(LinkedHashSet<Department> departmentList) {
+    public void setDepartmentList(List<Department> departmentList) {
         this.departmentList = departmentList;
     }
 
@@ -67,9 +78,9 @@ public class Hospital implements DepartmentSettable {
         return department;
     }
 
-    @Override
-    public LinkedHashSet<Department> deleteDepartment(Department department)  {
-        departmentList.remove(department);
-        return departmentList;
-    }
+   // @Override
+   // public LinkedHashSet<Department> deleteDepartment(Department department)  {
+      //  departmentList.remove(department);
+       // return departmentList;
+    //}
 }

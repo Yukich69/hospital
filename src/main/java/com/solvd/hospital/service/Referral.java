@@ -9,12 +9,17 @@ import java.util.Objects;
 public class Referral extends Service {
     private Doctor doctor;
 
+    private double price;
+
     public Referral(){
     }
-
-    public Referral(Patient patient, PatientRoom room, Doctor doctor) {
+    public Referral(Doctor doctor){
+        this.doctor = doctor;
+    }
+    public Referral(Patient patient, PatientRoom room, Doctor doctor, double price) {
         super(room, patient);
         this.doctor = doctor;
+        this.price = price;
     }
 
     public void setDoctor(Doctor doctor) {
@@ -23,6 +28,14 @@ public class Referral extends Service {
 
     public Doctor getDoctor() {
         return doctor;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getPrice() {
+        return price;
     }
 
     @Override

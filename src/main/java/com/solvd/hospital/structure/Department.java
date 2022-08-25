@@ -55,6 +55,11 @@ public class Department {
         this.nurseList = nurseList;
     }
 
+    public void doctorsToString(){
+        for(int i = 0; i < this.doctorList.size(); i++) {
+            System.out.println(this.doctorList.get(i).getName());
+        }
+    }
     @Override
     public String toString() {
         return getClass().getName() + "[name=" + getName() + ",doctors=" + getDoctorList().toString()

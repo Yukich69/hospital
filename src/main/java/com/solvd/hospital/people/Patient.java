@@ -8,7 +8,13 @@ public class Patient  extends Person {
     private String gender;
     private HealthCard card;
 
+    private String name;
+
     public Patient() {
+    }
+
+    public Patient(String name) {
+        this.name = name;
     }
 
     public Patient (String name,int age,String gender, HealthCard card) {

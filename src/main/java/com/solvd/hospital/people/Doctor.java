@@ -13,19 +13,22 @@ import org.apache.logging.log4j.Logger;
 
 public class Doctor extends Employee {
     private static final Logger log = LogManager.getLogger(Doctor.class);
-
     private static final Scanner scanner = new Scanner(System.in);
     private List<Patient>  patientList;
     private Office office;
+    private String name;
 
 
     public Doctor(){
     }
 
     public Doctor(String name, double salary){
+        this.name = name;
     }
 
-    public Doctor(Office office, String name, int age){
+    public Doctor(Office office, String name){
+        this.office = office;
+        this.name = name;
     }
 
     public Doctor(Office office, String name, boolean hasEducation, int age, Department department, double salary,
@@ -52,6 +55,15 @@ public class Doctor extends Employee {
     }
 
     public void setPatientList(ArrayList<Patient> patients){this.patientList = patients;}
+
+    public void addToList(Patient patient){
+        this.patientList.add(patient);
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
 
     @Override
     public String toString() {
@@ -102,17 +114,22 @@ public class Doctor extends Employee {
 
         log.info("Enter gender: ");
         String gender = scanner.nextLine();
-        log.info("Enter your disease: ");
-        String disease = scanner.nextLine();
+        log.info("Enter your disease: cardio(1) or surg(2) ");
+        String disease = "";
+        if(scanner.nextLine().equals("1")) {
+             disease = "heart disease";
+        }else if(scanner.nextLine().equals("2")){
+            disease = "tumor";
+        }
         LinkedHashSet<Disease> disset = new LinkedHashSet<>();
         Disease dis = new Disease();
         dis.setDisease(disease);
         HealthCard card = new HealthCard();
         switch (disease) {
-            case "cardio":
+            case "heart disease":
                 dis.setType(DiseaseType.CARDIO);
                 break;
-            case "surg":
+            case "tumor":
                 dis.setType(DiseaseType.SURGERY);
                 break;
             default:
@@ -121,7 +138,9 @@ public class Doctor extends Employee {
         }
         disset.add(dis);
         card.setDiseaseList(disset);
-        return new Patient(name, age, gender, card);
+        Patient patient = new Patient(name, age, gender, card);
+        addToList(patient);
+        return patient;
     }
     private boolean patientLimit(int size) {
         return size > 10;

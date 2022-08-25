@@ -14,6 +14,10 @@ public class Consultation extends Service {
 
     public Consultation(){
     }
+    public Consultation(Nurse nurse, double price){
+        this.nurse = nurse;
+        this.price = price;
+    }
 
     public Consultation(PatientRoom room, Patient patient, Nurse nurse, String date) {
         super(room, patient);
@@ -25,6 +29,7 @@ public class Consultation extends Service {
         return nurse;
     }
 
+
     public void setNurse(Nurse nurse) {
         this.nurse = nurse;
     }
@@ -34,6 +39,14 @@ public class Consultation extends Service {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     @Override
