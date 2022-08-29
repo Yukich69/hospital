@@ -111,9 +111,6 @@ public class Doctor extends Employee {
                 log.info("Try one more time");
             }
         }
-
-        log.info("Enter gender: ");
-        String gender = scanner.nextLine();
         log.info("Enter your disease: cardio(1) or surg(2) ");
         String disease = "";
         if(scanner.nextLine().equals("1")) {
@@ -138,7 +135,7 @@ public class Doctor extends Employee {
         }
         disset.add(dis);
         card.setDiseaseList(disset);
-        Patient patient = new Patient(name, age, gender, card);
+        Patient patient = new Patient(name, age, card);
         addToList(patient);
         return patient;
     }

@@ -12,7 +12,10 @@ public class Department {
     private List<Nurse> nurseList;
 
     public Department() {
+    }
 
+    public Department(String name){
+        this.name = name;
     }
 
 

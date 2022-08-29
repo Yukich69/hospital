@@ -100,9 +100,11 @@ public class InfoSetup {
 
         Doctor doc1 = new Doctor(new Office(3), "Ben");
         doc1.setPatientList(addPatients());
+        doc1.setDepartment(new Department("Cardiology"));
 
         Doctor doc2 = new Doctor(new Office(4), "Fill");
         doc2.setPatientList(addPatients());
+        doc2.setDepartment(new Department("Cardiology"));
 
         ArrayList<Doctor> cardioDocs = Stream.of(doc1, doc2)
                 .collect(Collectors.toCollection(() -> new ArrayList<>()));
@@ -136,9 +138,11 @@ public class InfoSetup {
 
         Doctor doc1 = new Doctor(new Office(1), "Jon");
         doc1.setPatientList(addPatients());
+        doc1.setDepartment(new Department("Surgery"));
 
         Doctor doc2 = new Doctor(new Office(2), "Jack");
         doc2.setPatientList(addPatients());
+        doc1.setDepartment(new Department("Surgery"));
 
         ArrayList<Doctor> surgeryDocs = Stream.of(doc1, doc2)
                 .collect(Collectors.toCollection(() -> new ArrayList<>()));
@@ -183,6 +187,7 @@ public class InfoSetup {
         }
         if(isCardio){
             isChoosed = false;
+            surf("Finding you a cardio doctor...");
             Referral referral = createCardioRefferal();
             surf("You are the patient of " + referral.getDoctor().getName());
             while (!isChoosed ) {
@@ -215,6 +220,7 @@ public class InfoSetup {
         }
         if(isTumor){
             isChoosed = false;
+            surf("Finding you a surgeon...");
             Referral referral = createSurgeonRefferal();
             surf("You are the patient of " + referral.getDoctor().getName());
             while (!isChoosed ) {
@@ -246,7 +252,6 @@ public class InfoSetup {
             pay.increasePayment(referral.getPrice());
         }
         if(isConsultation){
-            isChoosed = false;
             Consultation consultation = createConsult();
             surf( consultation.getNurse().getName() + " says that you need more vitamins, " +
                     "before consultation at " + consultation.getDate());
@@ -290,6 +295,7 @@ public class InfoSetup {
     }
 
     private Referral createCardioRefferal() {
+        boolean isSdis = true;
         Doctor doctor = addCardioDoctors().get(random.nextInt(2));
         Patient patient = doctor.addPatient();
         Referral referral = new Referral();

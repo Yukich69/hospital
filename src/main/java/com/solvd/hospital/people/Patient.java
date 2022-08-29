@@ -5,9 +5,7 @@ import com.solvd.hospital.healthInfo.HealthCard;
 import java.util.Objects;
 
 public class Patient  extends Person {
-    private String gender;
     private HealthCard card;
-
     private String name;
 
     public Patient() {
@@ -17,21 +15,14 @@ public class Patient  extends Person {
         this.name = name;
     }
 
-    public Patient (String name,int age,String gender, HealthCard card) {
+    public Patient(String name, int age, HealthCard card) {
         super(name, age);
-        this.gender = gender;
         this.card = card;
     }
 
-    public String getGender(){
-        return gender;
+    public void setCard(HealthCard card) {
+        this.card = card;
     }
-
-    public void setGender(String gender){
-        this.gender = gender;
-    }
-
-    public void setCard(HealthCard card){this.card = card;}
 
     public HealthCard getCard() {
         return card;
@@ -39,12 +30,12 @@ public class Patient  extends Person {
 
     @Override
     public String toString() {
-        return getClass().getName() + "[name=" + getName() + ",gender=" + getGender() + "]";
+        return getClass().getName() + "[name=" + getName() + ",gender=" + "]";
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName().hashCode(), getGender().hashCode());
+        return Objects.hash(getName().hashCode());
     }
 
     @Override
@@ -54,7 +45,4 @@ public class Patient  extends Person {
         Patient patient = (Patient) o;
         return hashCode() == patient.hashCode();
     }
-
-
-
 }
